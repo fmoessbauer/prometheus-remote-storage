@@ -1,0 +1,9 @@
+version: '2'
+services:
+  remotestorageadapter:
+    image: fmoessbauer/prometheus-remote-storage
+    ports:
+      - 9201:9201
+    command: ['-influxdb-url=http://localhost:8086', '-influxdb.database=prometheus', '-influxdb.retention-policy=autogen']
+    network_mode: 'host'
+
